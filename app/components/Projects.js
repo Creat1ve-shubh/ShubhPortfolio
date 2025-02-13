@@ -22,22 +22,22 @@ const Projects = () => {
             </div>
 
 
-                <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
-                    <h2 className='text-white text-center text-xl font-bold'>Project 1</h2>
-                    <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
-                <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
-                    <h2 className='text-white text-center text-xl font-bold'>Project 2</h2>
-                    <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
-                <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
-                    <h2 className='text-white text-center text-xl font-bold'>Project 3</h2>
-                    <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
-                <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
+            <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
+                <h2 className='text-white text-center text-xl font-bold'>Project 1</h2>
+                <button className='bg-white text-black ml-[95vh] hover:bg-slate-300 px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
+            <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
+                <h2 className='text-white text-center text-xl font-bold'>Project 2</h2>
+                <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
+            <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
+                <h2 className='text-white text-center text-xl font-bold'>Project 3</h2>
+                <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
+            <div className='bg-black mt-10 mx-[30vh] px-[40vh] py-5 transition-all duration-300 hover:scale-105 items-center rounded-lg'>
 
-                    <h2 className='text-white text-center text-xl font-bold'>Project 4</h2>
-                    <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
+                <h2 className='text-white text-center text-xl font-bold'>Project 4</h2>
+                <button className='bg-white text-black ml-[95vh] px-5 py-2 text-bold rounded-lg' href=''>Visit</button></div>
 
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default Projects
+export default Projects
