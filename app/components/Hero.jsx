@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import banner from "../assets/banner.jpeg";
+import shubh from '../assets/shubh.jpg';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
       </h1>
 
       <div className="relative w-full sm:w-[60%] max-w-screen-md">
-        <Image src={banner} alt="banner" width={3000} height={1100} className="w-full h-auto rounded-lg" />
+        <Image src={shubh} alt="banner" width={3000} height={1100} className="w-full h-auto rounded-lg" />
       </div>
     </div>
   );
