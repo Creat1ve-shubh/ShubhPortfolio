@@ -4,10 +4,15 @@ import banner from "../assets/banner.jpeg";
 
 const Hero = () => {
   return (
-    <div className="ml-[10vh] my-[8vh] flex items-center space-x-8 rounded-lg">
-      <h1 className="text-7xl font-thin font-serif text-black">lets get this rolling</h1>
-      <div className="" >
-        <Image src={banner} alt="banner" width={1500} height={1100} />
+    <div className="flex flex-col mt-[10vh] sm:flex-row items-center justify-between px-6 py-10 max-w-screen-xl mx-auto gap-6">
+      {/* Hero Text */}
+      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-thin font-serif text-black text-center sm:text-left">
+        Let's get this rolling
+      </h1>
+
+      {/* Hero Image */}
+      <div className="relative w-full sm:w-[60%] max-w-screen-md">
+        <Image src={banner} alt="banner" width={3000} height={1100} className="w-full h-auto rounded-lg" />
       </div>
     </div>
   );
