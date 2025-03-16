@@ -46,7 +46,7 @@ const Timeline = () => {
                         className="text-4xl font-bold text-center"
                     />
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-[80vh]  bg-gray-700"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full  bg-gray-700"></div>
 
                 {timelineData.map((item, index) => (
                     <div key={index} className="flex items-center justify-between w-full mb-10 relative">
