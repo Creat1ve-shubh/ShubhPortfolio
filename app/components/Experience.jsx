@@ -24,14 +24,15 @@ const timelineData = [
 
 const Timeline = () => {
     return (
-        <div className="relative w-full max-w-4xl mx-auto p-6">
+        <div className="relative w-full max-w-4xl flex items-center justify-center mx-auto p-6">
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
 
             >
-                <div className="mb-10 text-2xl font-bold">
+                <div className='px-40 py-[0.5px] rounded-lg  bg-black m-10 '></div>
+                <div className="mb-10 text-2xl text-center font-bold">
                     <TypeAnimation
                         preRenderFirstString={true}
                         sequence={[
@@ -43,7 +44,7 @@ const Timeline = () => {
                         speed={30}
                         style={{ fontSize: '2em' }}
                         repeat={Infinity}
-                        className="text-4xl font-bold text-center"
+                        className="text-4xl text-black font-bold text-center"
                     />
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-[110vh]  bg-gray-700"></div>
@@ -68,9 +69,9 @@ const Timeline = () => {
                                     transition={{ duration: 0.5, delay: index * 0.2 }}
                                     className="w-1/3 bg-white border-2 border-black p-4 rounded-lg shadow-xl"
                                 >
-                                    <h3 className="text-xl font-semibold text-black">{item.title}</h3>
-                                    <p className="text-black">{item.company}</p>
-                                    <p className="text-black mt-2">{item.description}</p>
+                                    <h3 className="text-xl sm:text-lg font-semibold text-black">{item.title}</h3>
+                                    <p className="text-black sm:text-lg">{item.company}</p>
+                                    <p className="text-black mt-2 sm:text-lg">{item.description}</p>
                                 </motion.div>
                             </>
                         ) : (

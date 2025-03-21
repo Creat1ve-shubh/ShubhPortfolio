@@ -1,9 +1,6 @@
 "use client"
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation';
-import Experience from './Experience';
-import ScrollLinked from './Experience';
-import WorkExperience from './Experience';
 import { motion } from 'framer-motion';
 
 const AboutMe = () => {
@@ -13,7 +10,7 @@ const AboutMe = () => {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
       >
-        <div className='flex flex-row gap-4 mt-[5vh] px-[20vh] text-black '>
+        <div className='flex items-center justify-center gap-4 mt-[5vh] px-[20vh] text-black '>
           <div className='flex flex-col gap-4 max-w-4xl'>
             <div className='text-center text-black text-2xl font-bold'>
               <TypeAnimation
@@ -51,11 +48,8 @@ const AboutMe = () => {
               <p className='text-2xl font-medium'> Python, MySQL, Postgresql, Figma, Java, C </p>
             </div>
           </div>
-          <div className='px-[0.5px] py-40 rounded-lg bg-black'></div>
-          <div className='text-center items-center justify-center ml-10'>
-            <WorkExperience />
 
-          </div>
+
 
         </div >
       </motion.div>
