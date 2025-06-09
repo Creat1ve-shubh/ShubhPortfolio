@@ -8,6 +8,7 @@ const Footer = () => {
         className='text-blue-600 font-serif font-black'
         target='_blank'
         href='https://github.com/Creat1ve-shubh'> Shubh Shrivastava </a>
+
     </div>
   )
 }

@@ -3,7 +3,13 @@ import React from 'react'
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 
+
+
+
 const AboutMe = () => {
+  // Import Ancizar Sans from Google Fonts using next/font/google
+
+
   return (
     <div>
       <motion.div
@@ -33,6 +39,9 @@ const AboutMe = () => {
                 I love building things that make an impact and always eager to take on new challenges.<br></br >
                 I am always looking for new opportunities to learn and grow.
               </p >
+              <br></br>
+              <p className='text-center font-medium   text-2xl'>any exciting opportunities? reach me at </p>
+              <p className='text-center font-sans  underline text-2xl'>shubhshrivastavawork@gmail.com</p>
               <div className='px-40 py-[0.5px] rounded-lg bg-black m-10 '></div>
               <h1 className='text-2xl text-center items-center font-semibold mt-10 ml-24'>Primary Tech Stack I use ✍🏻</h1>
               <ul className=' text-center items-center justify-center text-2xl mt-5'>
@@ -46,15 +55,17 @@ const AboutMe = () => {
               </ul>
               <p className='text-black font-semibold text-2xl mt-10'> Other stuff I like to explore: </p>
               <p className='text-2xl font-medium'> Python, MySQL, Postgresql, Figma, Java, C </p>
+
             </div>
+            <div className='flex items-center justify-center'>
+              <button className='bg-white text-black border-black border-2 px-8 py-4 font-bold rounded-lg hover:scale-125 transition-all duration-300 mt-10'>
+                <a href='https://drive.google.com/file/d/1TsuXUukHk0kGIH4oWFW9Gcf-JOoCcLbx/view?usp=sharing' target='_blank' rel='noopener noreferrer'>
+                  My Resume
+                </a></button></div>
           </div>
-
-
-
         </div >
       </motion.div>
     </div >
-
   )
 }
 

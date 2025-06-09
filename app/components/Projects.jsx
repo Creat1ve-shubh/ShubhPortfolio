@@ -1,60 +1,68 @@
-'use client'
+import {
+    BellIcon,
+    CalendarIcon,
+    FileTextIcon,
+    GlobeIcon,
+    InputIcon,
+} from "@radix-ui/react-icons";
 
-import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { motion } from 'framer-motion';
-const projects = [
-    { id: 1, name: 'Oneiros 2025', link: '#', image: '/images/project1.jpg' },
-    { id: 2, name: 'MUJ ACM SChap Website', link: '#', image: '/images/project2.jpg' },
-    { id: 3, name: 'MUJ ACM Elicit 2024', link: '#', image: '/images/project3.jpg' },
-    { id: 4, name: 'SocialNotes', link: '#', image: '/images/project4.jpg' },
-    { id: 5, name: 'BuyWithMe', link: '#', image: '/images/project3.jpg' },
-    { id: 6, name: 'Co-react', link: '#', image: '/images/project4.jpg' },
+import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 
+const features = [
+    {
+        Icon: FileTextIcon,
+        name: "Save your files",
+        description: "We automatically save your files as you type.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+    },
+    {
+        Icon: InputIcon,
+        name: "Full text search",
+        description: "Search through all your files in one place.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    },
+    {
+        Icon: GlobeIcon,
+        name: "Multilingual",
+        description: "Supports 100+ languages and counting.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+    },
+    {
+        Icon: CalendarIcon,
+        name: "Calendar",
+        description: "Use the calendar to filter your files by date.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+    },
+    {
+        Icon: BellIcon,
+        name: "Notifications",
+        description:
+            "Get notified when someone shares a file or mentions you in a comment.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
+    },
 ];
 
-const ProjectCard = ({ name, link, image }) => (
-
-    <div
-        className="relative w-full max-w-lg h-36 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-        style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-    >
-        {/* Overlay for better text contrast */}
-
-        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
-            <h2 className="text-white text-xl font-bold">{name}</h2>
-            <a href={link} className="mt-4 bg-white text-black px-5 py-2 font-bold rounded-lg hover:bg-slate-300">
-                Visit
-            </a>
-        </div>
-    </div>
-
-);
-
-const Projects = () => {
+export default function Projects() {
     return (
-
-        <div className="mt-[10vh] flex flex-col items-center px-4">
-
-            <div className="text-center text-black text-2xl font-bold">
-                <TypeAnimation
-                    preRenderFirstString={true}
-                    sequence={[500, 'My Projects', 1000, 'Mere Projects']}
-                    speed={30}
-                    style={{ fontSize: '2em' }}
-                    repeat={Infinity}
-                />
-            </div>
-
-
-            <div className="mt-10 flex flex-wrap justify-center gap-6 w-full">
-                {projects.map((project) => (
-                    <ProjectCard key={project.id} name={project.name} link={project.link} image={project.image} />
-                ))}
-            </div>
-        </div>
-
+        <BentoGrid className="lg:grid-rows-3">
+            {features.map((feature) => (
+                <BentoCard key={feature.name} {...feature} />
+            ))}
+        </BentoGrid>
     );
-};
-
-export default Projects;
+}
