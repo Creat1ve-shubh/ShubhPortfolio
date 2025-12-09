@@ -9,7 +9,7 @@ const GradientPill = ({ children }) => (
   <motion.span
     whileHover={{ scale: 1.05, y: -1 }}
     whileTap={{ scale: 0.97 }}
-    className="inline-flex items-center rounded-full bg-gradient-to-r from-sky-500/15 via-purple-500/20 to-pink-500/20 px-2.5 py-0.5 text-xs md:text-[13px] font-semibold text-slate-800 border border-sky-500/40 shadow-sm"
+    className="inline-flex items-center rounded-full bg-gradient-to-r from-sky-500/15 via-purple-500/20 to-pink-500/20 px-2 py-0.5 text-[11px] md:text-[12px] font-semibold text-slate-800 border border-sky-500/40 shadow-sm"
   >
     {children}
   </motion.span>
@@ -19,7 +19,7 @@ const MonoPill = ({ children }) => (
   <motion.span
     whileHover={{ scale: 1.04, y: -1 }}
     whileTap={{ scale: 0.97 }}
-    className="inline-flex items-center rounded-md bg-slate-900 text-slate-50 px-1.5 py-0.5 text-[11px] font-semibold shadow-sm"
+    className="inline-flex items-center rounded-md bg-slate-900 text-slate-50 px-1.5 py-0.5 text-[10.5px] md:text-[11px] font-semibold shadow-sm"
   >
     {children}
   </motion.span>
@@ -39,7 +39,7 @@ const exploring = ["Python", "MySQL", "PostgreSQL", "Figma", "Java", "C"];
 
 const AboutMe = () => {
   return (
-    <section className="w-full max-w-5xl mx-auto px-4 py-16 md:py-20 text-black relative">
+    <section className="w-full max-w-5xl mx-auto px-4 py-14 md:py-18 text-black relative">
       {/* subtle radial background */}
       <div className="pointer-events-none absolute inset-x-0 -z-10 h-[40rem] bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.10),transparent_60%)]" />
 
@@ -47,7 +47,7 @@ const AboutMe = () => {
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="flex flex-col gap-10"
+        className="flex flex-col gap-8 md:gap-10"
       >
         {/* Heading Block */}
           <div className="text-center md:text-left">
@@ -55,21 +55,25 @@ const AboutMe = () => {
             Bio
           </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
-          About Me
+          About Me 
+             {/* animated underline */}
+             <div className="mt-2 flex justify-center md:justify-start">
+               <motion.div
+                 initial={{ width: 0, opacity: 0 }}
+                 whileInView={{ width: "100%", opacity: 1 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                 className="h-1 w-full max-w-[220px] min-w-[90px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+               />
+             </div>
         </h2>
-         {/* animated underline */}
-                  <motion.div
-                    initial={{ width: 0, opacity: 0 }}
-                    whileInView={{ width: 160, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="h-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
-                  />
+       
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
+        <div className="grid gap-8 md:gap-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
           {/* LEFT SIDE — text */}
-          <div className="space-y-4 text-base md:text-lg leading-relaxed max-w-2xl">
+          <div className="space-y-3.5 text-[15px] md:text-lg leading-relaxed max-w-2xl">
 
             {/* Paragraph 1 — FIXED alignment */}
             <motion.p
@@ -77,7 +81,7 @@ const AboutMe = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               whileHover={{ y: -2 }}
-              className="rounded-xl py-1 -mx-1 px-1 transition-colors duration-200 hover:bg-white/70"
+              className="rounded-xl py-1 -mx-0.5 px-1 transition-colors duration-200 hover:bg-white/70"
             >
               Hello there! I&apos;m Shubh, a{" "}
               <Badge text="full stack developer" /> who enjoys turning tricky
@@ -90,7 +94,7 @@ const AboutMe = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18 }}
               whileHover={{ y: -2 }}
-              className="rounded-xl py-1 -mx-1 px-1 transition-colors duration-200 hover:bg-white/70"
+              className="rounded-xl py-1 -mx-0.5 px-1 transition-colors duration-200 hover:bg-white/70"
             >
               I love building <GradientPill>impact-driven products</GradientPill>{" "}
               for <GradientPill>web</GradientPill> and interfaces that feel fast,
@@ -104,7 +108,7 @@ const AboutMe = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.26 }}
               whileHover={{ y: -2 }}
-              className="rounded-xl py-1 -mx-1 px-1 transition-colors duration-200 hover:bg-white/70"
+              className="rounded-xl py-1 -mx-0.5 px-1 transition-colors duration-200 hover:bg-white/70"
             >
               I&apos;m always looking for{" "}
               <GradientPill>new challenges</GradientPill> and teams where I can
@@ -118,7 +122,7 @@ const AboutMe = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.34 }}
-              className="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-4"
+              className="mt-5 rounded-2xl border border-neutral-200 bg-neutral-50 px-3.5 py-3.5"
             >
               <p className="text-sm md:text-base font-medium">
                 Any exciting opportunities?
@@ -143,7 +147,7 @@ const AboutMe = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="rounded-2xl border border-neutral-200 bg-white shadow-sm px-5 py-5"
+              className="rounded-2xl border border-neutral-200 bg-white shadow-sm px-4 py-4 md:px-5 md:py-5"
             >
               <h2 className="text-lg md:text-xl font-semibold">
                 Primary Tech Stack I use ✍🏻
@@ -154,7 +158,7 @@ const AboutMe = () => {
                   <motion.span
                     key={tech}
                     whileHover={{ y: -2, scale: 1.03 }}
-                    className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium"
+                    className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-[11px] font-medium"
                   >
                     {tech}
                   </motion.span>
@@ -167,7 +171,7 @@ const AboutMe = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.26 }}
-              className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50/70 px-5 py-4"
+              className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50/70 px-4 py-4 md:px-5"
             >
               <p className="text-sm font-semibold mb-2">
                 Other stuff I like to explore:
