@@ -58,24 +58,19 @@ export default function ExperienceText() {
             My Journey
         </h2>
          {/* animated underline */}
-                  <motion.div
-                    initial={{ width: 0, opacity: 0 }}
-                    whileInView={{ width: "60%", opacity: 1 }}
-                    style={{ maxWidth: 200 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="h-1 rounded-full sm:justify-center bg-gradient-to-r  from-blue-500 via-purple-500 to-pink-500"
-                  />
-        <p className="mt-2 text-sm md:text-base text-slate-600">
-          A few selected projects that show how I think about UX, reliability,
-          and shipping things that people actually use.
-        </p>
+                 <div className="mt-2 flex justify-center md:justify-start">
+                                <motion.div
+                                  initial={{ width: 0, opacity: 0 }}
+                                  whileInView={{ width: "100%", opacity: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                                  className="h-1 w-full max-w-[220px] min-w-[90px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+                                />
+                              </div>
+        
       
 
-          <p className="mt-2 max-w-2xl text-sm md:text-base text-slate-600 leading-relaxed">
-            A text-first snapshot of how I moved from hands-on development to leadership
-            and event ownership — not just by changing titles, but by taking on more
-            responsibility over time.
-          </p>
+          
         </div>
 
         {/* INTRO PARAGRAPHS */}

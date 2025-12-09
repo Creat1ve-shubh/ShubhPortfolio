@@ -23,7 +23,7 @@ const Navbar = () => {
           </a>
         </li>
         <li className="py-1">
-          <a href="" target="_blank" rel="noopener noreferrer"
+          <a href="https://leetcode.com/u/Creat1ve-shubh/" target="_blank" rel="noopener noreferrer"
             className="hover:text-blue-600 transition">
             Leetcode
           </a>
