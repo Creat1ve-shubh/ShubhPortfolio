@@ -1,72 +1,211 @@
-"use client"
-import React from 'react'
-import { TypeAnimation } from 'react-type-animation';
-import { motion } from 'framer-motion';
+"use client";
 
+import React from "react";
+import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { Badge } from "./ui/Badge";
 
+const GradientPill = ({ children }) => (
+  <motion.span
+    whileHover={{ scale: 1.05, y: -1 }}
+    whileTap={{ scale: 0.97 }}
+    className="inline-flex items-center rounded-full bg-gradient-to-r from-sky-500/15 via-purple-500/20 to-pink-500/20 px-2.5 py-0.5 text-xs md:text-[13px] font-semibold text-slate-800 border border-sky-500/40 shadow-sm"
+  >
+    {children}
+  </motion.span>
+);
 
+const MonoPill = ({ children }) => (
+  <motion.span
+    whileHover={{ scale: 1.04, y: -1 }}
+    whileTap={{ scale: 0.97 }}
+    className="inline-flex items-center rounded-md bg-slate-900 text-slate-50 px-1.5 py-0.5 text-[11px] font-semibold shadow-sm"
+  >
+    {children}
+  </motion.span>
+);
+
+const primaryStack = [
+  "Next.js",
+  "Node.js",
+  "Express.js",
+  "React.js",
+  "MongoDB",
+  "TailwindCSS",
+  "GitHub",
+];
+
+const exploring = ["Python", "MySQL", "PostgreSQL", "Figma", "Java", "C"];
 
 const AboutMe = () => {
-  // Import Ancizar Sans from Google Fonts using next/font/google
-
-
   return (
-    <div>
+    <section className="w-full max-w-5xl mx-auto px-4 py-16 md:py-20 text-black relative">
+      {/* subtle radial background */}
+      <div className="pointer-events-none absolute inset-x-0 -z-10 h-[40rem] bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.10),transparent_60%)]" />
+
       <motion.div
-        initial={{ opacity: 0, scale: 0 }}
+        initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="flex flex-col gap-10"
       >
-        <div className='flex items-center justify-center gap-4 mt-[5vh] px-[20vh] text-black '>
-          <div className='flex flex-col gap-4 max-w-4xl'>
-            <div className='text-center text-black text-2xl font-bold'>
-              <TypeAnimation
-                preRenderFirstString={true}
-                sequence={[
-                  500,
-                  '👾 About Me..', // initially rendered starting point
-                  1000,
-                  ' 👾 Mere Baare Mei.. ',
-                ]}
-                speed={30}
-                style={{ fontSize: '2em' }}
-                repeat={Infinity}
-              />
-            </div>
-            <div className=' text-black'>
-              < p className='text-black text-center mt-[5vh] text-2xl font-semibold' >
-                Hello there! I am Shubh, a passionate and dedicated full stack developer <br /> with a knack for solving painful problems
-                to build innovative solutions.<br></br >
-                I love building things that make an impact and always eager to take on new challenges.<br></br >
-                I am always looking for new opportunities to learn and grow.
-              </p >
-              <br></br>
-              <p className='text-center font-medium   text-2xl'>any exciting opportunities? reach me at </p>
-              <p className='text-center font-sans  underline text-2xl'>shubhshrivastavawork@gmail.com</p>
-              <div className='px-40 py-[0.5px] rounded-lg bg-black m-10 '></div>
-              <h1 className='text-2xl text-center items-center font-semibold mt-10 ml-24'>Primary Tech Stack I use ✍🏻</h1>
-              <ul className=' text-center items-center justify-center text-2xl mt-5'>
-                <li> → NextJS</li>
-                <li> → NodeJS </li>
-                <li> → ExpressJS</li>
-                <li> → ReactJS </li>
-                <li> → MongoDB </li>
-                <li> → TailwindCSS</li>
-                <li> → Github</li>
-              </ul>
-              <p className='text-black font-semibold text-2xl mt-10'> Other stuff I like to explore: </p>
-              <p className='text-2xl font-medium'> Python, MySQL, Postgresql, Figma, Java, C </p>
+        {/* Heading Block */}
+          <div className="text-center md:text-left">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Bio
+          </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+          About Me
+        </h2>
+         {/* animated underline */}
+                  <motion.div
+                    initial={{ width: 0, opacity: 0 }}
+                    whileInView={{ width: 160, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="h-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+                  />
+        </div>
 
-            </div>
-            <div className='flex items-center justify-center'>
-              <button className='bg-white text-black border-black border-2 px-8 py-4 font-bold rounded-lg hover:scale-125 transition-all duration-300 mt-10'>
-                <a href='https://drive.google.com/file/d/1TsuXUukHk0kGIH4oWFW9Gcf-JOoCcLbx/view?usp=sharing' target='_blank' rel='noopener noreferrer'>
-                  My Resume
-                </a></button></div>
+        {/* Main Content Grid */}
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
+          {/* LEFT SIDE — text */}
+          <div className="space-y-4 text-base md:text-lg leading-relaxed max-w-2xl">
+
+            {/* Paragraph 1 — FIXED alignment */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -2 }}
+              className="rounded-xl py-1 -mx-1 px-1 transition-colors duration-200 hover:bg-white/70"
+            >
+              Hello there! I&apos;m Shubh, a{" "}
+              <Badge text="full stack developer" /> who enjoys turning tricky
+              problems into <GradientPill>clean &amp; usable experiences</GradientPill>.
+            </motion.p>
+
+            {/* Paragraph 2 — FIXED */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.18 }}
+              whileHover={{ y: -2 }}
+              className="rounded-xl py-1 -mx-1 px-1 transition-colors duration-200 hover:bg-white/70"
+            >
+              I love building <GradientPill>impact-driven products</GradientPill>{" "}
+              for <GradientPill>web</GradientPill> and interfaces that feel fast,
+              simple and intentional. Shipping real things and iterating on
+              feedback is way more fun to me than leaving ideas in a notebook.
+            </motion.p>
+
+            {/* Paragraph 3 — FIXED */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.26 }}
+              whileHover={{ y: -2 }}
+              className="rounded-xl py-1 -mx-1 px-1 transition-colors duration-200 hover:bg-white/70"
+            >
+              I&apos;m always looking for{" "}
+              <GradientPill>new challenges</GradientPill> and teams where I can
+              contribute both as an engineer and as a{" "}
+              <GradientPill>collaborator</GradientPill> — learning in public,
+              pairing, and sharing what I pick up along the way.
+            </motion.p>
+
+            {/* CONTACT BOX */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.34 }}
+              className="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-4"
+            >
+              <p className="text-sm md:text-base font-medium">
+                Any exciting opportunities?
+              </p>
+
+              <motion.a
+                href="mailto:shubhshrivastavawork@gmail.com"
+                whileHover={{ y: -1 }}
+                className="relative mt-2 inline-block text-sm md:text-base font-semibold"
+              >
+                <span className="absolute inset-x-0 bottom-0 h-[45%] rounded-md bg-yellow-200/70 -z-10" />
+                shubhshrivastavawork@gmail.com
+              </motion.a>
+            </motion.div>
           </div>
-        </div >
-      </motion.div>
-    </div >
-  )
-}
 
-export default AboutMe
+          {/* RIGHT SIDE — stacks */}
+          <div className="space-y-6">
+
+            {/* PRIMARY STACK */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="rounded-2xl border border-neutral-200 bg-white shadow-sm px-5 py-5"
+            >
+              <h2 className="text-lg md:text-xl font-semibold">
+                Primary Tech Stack I use ✍🏻
+              </h2>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {primaryStack.map((tech) => (
+                  <motion.span
+                    key={tech}
+                    whileHover={{ y: -2, scale: 1.03 }}
+                    className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* EXPLORING */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.26 }}
+              className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50/70 px-5 py-4"
+            >
+              <p className="text-sm font-semibold mb-2">
+                Other stuff I like to explore:
+              </p>
+
+              <div className="flex flex-wrap gap-1.5">
+                {exploring.map((item) => (
+                  <MonoPill key={item}>{item}</MonoPill>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* RESUME BUTTON */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.32 }}
+              className="flex justify-start"
+            >
+              <a
+                href="https://drive.google.com/file/d/1TsuXUukHk0kGIH4oWFW9Gcf-JOoCcLbx/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.button
+                  whileHover={{ y: -3, scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="rounded-lg border-2 border-black bg-white px-8 py-3 text-sm md:text-base font-semibold shadow-sm hover:shadow-lg transition-all"
+                >
+                  My Resume
+                </motion.button>
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default AboutMe;

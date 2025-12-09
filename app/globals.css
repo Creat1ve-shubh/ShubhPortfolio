@@ -76,3 +76,27 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Infinite moving cards animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+/* CSS (scoped or global). Use a per-node class if you need different speeds */
+@keyframes dash-shift {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 220; } /* approx sum of dash lengths */
+}
+
+.anim-border-yourNodeId {
+  animation: dash-shift 3s linear infinite;
+}

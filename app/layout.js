@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Shubh Shrivastava",
-  description: "Portfolio of Shubh Shrivastava",
+  title: "Shubh's Portfolio",
+  description: "Collection of my projects and experiences.",
 
 
 
