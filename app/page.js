@@ -25,6 +25,7 @@ export default function Home() {
       { id: "about", comp: <AboutMe /> },
       { id: "experience", comp: <Timeline /> },
       { id: "projects", comp: <Projects /> },
+      { id: "cards", comp: <InfiniteMovingCardsDemo /> },
       { id: "scroll", comp: <ScrollLinked /> },
       { id: "footer", comp: <Footer /> },
     ],
