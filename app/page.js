@@ -172,7 +172,7 @@ const go = useCallback(
       return;
 
     const distance = touchStart.current - touchEnd.current;
-    const minSwipe = 120;
+    const minSwipe = 150;
 
     const now = Date.now();
     if (now - lastScroll.current < 1200) return;
