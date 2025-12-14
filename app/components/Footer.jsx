@@ -3,10 +3,10 @@ import { Mail, ArrowRight, Heart, Sparkles } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className='bg-white border-t-4 border-black py-16 md:py-20 w-full'>
+    <footer className='bg-white border-t-4 border-black py-16 mt-16 md:py-20 w-full'>
       <div className='max-w-4xl mx-auto px-4'>
         {/* Main Message */}
-        <div className='mb-10'>
+        <div className='mb-4'>
           <div className='inline-block bg-yellow-300 border-2 border-black px-3 py-1 text-xs font-bold mb-6'>
             <span className='flex items-center gap-2'>
               <Sparkles className='w-4 h-4' />
