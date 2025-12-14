@@ -38,43 +38,20 @@ const milestones = [
 export default function ExperienceText() {
   return (
     <section className="relative w-full max-w-3xl mx-auto px-4 py-16 md:py-20">
-
-      {/* SOFT BACKGROUND TINT */}
-      <div className="pointer-events-none absolute inset-x-0 -top-40 -z-10 h-80 
-        bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.15),transparent_60%)]" />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="space-y-12"
-      >
+      <div className="space-y-12">
         {/* HEADER */}
         <div className="mb-8 md:mb-10 text-center md:text-left">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-black border-l-4 border-orange-500 pl-3 inline-block">
             Experiences
           </p>
-        <h2 className="text-3xl md:text-4xl mb-2 font-bold tracking-tight text-slate-900">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-black mt-2">
             My Journey
-        </h2>
-         {/* animated underline */}
-                 <div className="mt-2 flex justify-center md:justify-start">
-                                <motion.div
-                                  initial={{ width: 0, opacity: 0 }}
-                                  whileInView={{ width: "100%", opacity: 1 }}
-                                  viewport={{ once: true }}
-                                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                                  className="h-1 w-full max-w-[220px] min-w-[90px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
-                                />
-                              </div>
-        
-      
-
-          
+          </h2>
+          <div className="mt-3 h-1 w-32 bg-black"></div>
         </div>
 
         {/* INTRO PARAGRAPHS */}
-        <div className="max-w-2xl space-y-4 text-sm md:text-[15px] text-slate-600 leading-relaxed">
+        <div className="max-w-2xl space-y-4 text-sm md:text-[15px] text-black leading-relaxed font-medium">
           <p>
             It started with building the interfaces students actually see, then moved
             into owning the platforms that clubs rely on, and eventually into designing
@@ -82,7 +59,7 @@ export default function ExperienceText() {
           </p>
           <p>
             For me, experience isn't just a list of roles. It's a pattern:
-            <span className="font-semibold text-slate-900">
+            <span className="font-black text-black bg-yellow-300 px-1 border-2 border-black">
               {" "}build → improve → lead
             </span>
             — whether that's a website, a team, or a full event.
@@ -90,56 +67,47 @@ export default function ExperienceText() {
         </div>
 
         {/* TIMELINE LIST */}
-        <div className="max-w-2xl mt-8 space-y-10">
-          {milestones.map((m, index) => (
-            <motion.div
+        <div className="max-w-2xl mt-8 space-y-6">
+          {milestones.map((m) => (
+            <div
               key={m.id}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.35, delay: index * 0.08 }}
-              className="relative pl-6 border-l border-slate-200"
+              className="border-3 border-black bg-white neo-shadow p-5"
             >
-              {/* TIMELINE DOT */}
-              <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full 
-                bg-gradient-to-r from-blue-500 to-purple-500 shadow-sm" />
-
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-black bg-orange-500 inline-block px-2 py-1">
                 {m.label}
               </p>
 
-              <div className="mt-1 flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-900">
+              <div className="mt-2 flex flex-wrap items-center gap-2 text-sm font-bold text-black">
                 <span>{m.role}</span>
-                <span className="text-slate-400">·</span>
-                <span className="text-slate-700">{m.company}</span>
+                <span className="text-black">·</span>
+                <span className="text-black">{m.company}</span>
               </div>
 
-              <p className="text-xs text-slate-500 mt-0.5">{m.period}</p>
+              <p className="text-xs text-black font-bold mt-0.5 border-l-2 border-black pl-2">{m.period}</p>
 
-              <p className="mt-3 text-sm md:text-[15px] font-medium text-slate-900">
+              <p className="mt-3 text-sm md:text-[15px] font-bold text-black">
                 {m.headline}
               </p>
 
-              <p className="mt-1 text-sm md:text-[15px] text-slate-600 leading-relaxed">
+              <p className="mt-2 text-sm md:text-[15px] text-black leading-relaxed">
                 {m.body}
               </p>
 
               {/* TAGS */}
-              <div className="mt-3 flex flex-wrap gap-1.5">
+              <div className="mt-3 flex flex-wrap gap-2">
                 {m.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-slate-200 bg-slate-50 
-                      px-2.5 py-0.5 text-[11px] font-medium text-slate-700"
+                    className="border-2 border-black bg-white px-2.5 py-0.5 text-[11px] font-bold text-black hover:bg-blue-500 hover:text-white motion-hover"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

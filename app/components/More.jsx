@@ -5,8 +5,8 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div
-      className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className="h-[40rem] flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden">
+      <h2 className="text-3xl md:text-4xl font-black text-black mb-6 text-center">What I Bring to Teams</h2>
       <InfiniteMovingCards items={ROLE_QUESTIONS} direction="right" speed="slow" />
       <InfiniteMovingCards items={ROLE_RECOMMENDATIONS} direction="left" speed="slow" />
     </div>

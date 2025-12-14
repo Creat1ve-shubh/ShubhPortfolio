@@ -12,10 +12,11 @@ export default function ScrollLinked() {
           scaleX: scrollYProgress,
         }}
         className="
-          fixed top-0 left-0 right-0 h-[6px]
+          fixed top-0 left-0 right-0 h-2
           origin-left
-          bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500
-          shadow-lg shadow-pink-500/20
+          bg-orange-500
+          border-b-2 border-black
+          z-50
         "
       />
     </>

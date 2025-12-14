@@ -22,10 +22,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-
+    <html lang="en" style={{ overflow: 'hidden', height: '100vh' }}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ 
+          overflow: 'hidden', 
+          height: '100vh',
+          width: '100vw',
+          margin: 0,
+          padding: 0,
+        }}
       >
         {children}
       </body>
