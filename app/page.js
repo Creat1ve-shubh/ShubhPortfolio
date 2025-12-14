@@ -13,9 +13,10 @@ import Timeline from "./components/Experience";
 import { InfiniteMovingCardsDemo } from "./components/More";
 import Achievements from "./components/Achievements";
 
-/* -------------------- CURTAIN MOTION (STABLE) -------------------- */
+/* -------------------- CURTAIN MOTION (DIRECTION-BASED) -------------------- */
 
-const curtainVariants = {
+// Forward (next): comes from bottom, exits to top
+const curtainVariantsForward = {
   initial: { y: "100vh" },
   enter: {
     y: "0vh",
@@ -26,6 +27,25 @@ const curtainVariants = {
   },
   exit: {
     y: "-100vh",
+    transition: {
+      duration: 0.3,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
+
+// Backward (previous): comes from top, exits to bottom
+const curtainVariantsBackward = {
+  initial: { y: "-100vh" },
+  enter: {
+    y: "0vh",
+    transition: {
+      duration: 0.3,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+  exit: {
+    y: "100vh",
     transition: {
       duration: 0.3,
       ease: [0.4, 0, 0.2, 1],
@@ -57,6 +77,7 @@ export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [phase, setPhase] = useState("idle"); 
 // "idle" | "enter" | "exit"
+  const [scrollProgress, setScrollProgress] = useState(0);
 
 
   const lastScroll = useRef(0);
@@ -68,8 +89,29 @@ export default function Home() {
 useEffect(() => {
   if (!isTransitioning) {
     window.scrollTo(0, 0);
+    setScrollProgress(0);
   }
 }, [index, isTransitioning]);
+
+  /* -------------------- SCROLL PROGRESS HANDLER -------------------- */
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const main = document.querySelector(".carousel-slide");
+      if (!main) return;
+
+      const scrollTop = main.scrollTop;
+      const scrollHeight = main.scrollHeight - main.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+
+    const main = document.querySelector(".carousel-slide");
+    if (main) {
+      main.addEventListener("scroll", handleScroll);
+      return () => main.removeEventListener("scroll", handleScroll);
+    }
+  }, [index]);
 
 
   /* -------------------- NAVIGATION LOGIC -------------------- */
@@ -100,11 +142,12 @@ const go = useCallback(
       }
 
       const now = Date.now();
-      if (now - lastScroll.current < 700) return;
+      if (now - lastScroll.current < 800) return;
       lastScroll.current = now;
 
-      if (e.deltaY > 20) go(1);
-      if (e.deltaY < -20) go(-1);
+      // Require stronger scroll to trigger transition
+      if (e.deltaY > 40) go(1);
+      if (e.deltaY < -40) go(-1);
     },
     [go, isTransitioning]
   );
@@ -129,10 +172,10 @@ const go = useCallback(
       return;
 
     const distance = touchStart.current - touchEnd.current;
-    const minSwipe = 50;
+    const minSwipe = 70;
 
     const now = Date.now();
-    if (now - lastScroll.current < 700) return;
+    if (now - lastScroll.current < 800) return;
     lastScroll.current = now;
 
     if (distance > minSwipe) go(1);
@@ -142,7 +185,10 @@ const go = useCallback(
   /* -------------------- RENDER -------------------- */
 
   return (
-    <div className="h-screen w-screen overflow-hidden">
+    <div className="h-screen w-screen overflow-hidden relative">
+      {/* SCROLL PROGRESS BAR */}
+      <div className="fixed top-0 left-0 h-1 bg-orange-500 z-50 transition-all" style={{ width: `${scrollProgress}%` }} />
+      
       <Navbar />
 
       <main
@@ -164,7 +210,7 @@ const go = useCallback(
     <motion.div
       key="curtain"
       className="fixed inset-0 z-50 bg-black border-t-8 border-orange-500"
-      variants={curtainVariants}
+      variants={direction > 0 ? curtainVariantsForward : curtainVariantsBackward}
       initial="initial"
       animate={phase === "enter" ? "enter" : "exit"}
       onAnimationComplete={() => {

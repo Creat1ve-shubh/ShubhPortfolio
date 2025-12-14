@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useMemo } from "react";
 
 const milestones = [
   {
@@ -9,6 +10,7 @@ const milestones = [
     period: "Jan 2025 – Feb 2025",
     role: "Web Developer",
     company: "MUJ Oneiros (Official College Fest)",
+    category: "Fests",
     headline: "Shipped the official fest website on a tight deadline.",
     body: "Owned the front-end experience for the Oneiros fest website using Next.js and TailwindCSS, ensuring the site stayed fast and responsive even during heavy traffic.",
     tags: ["Next.js", "TailwindCSS", "Ownership"],
@@ -19,6 +21,7 @@ const milestones = [
     period: "May 2024 – Present",
     role: "Head of Web Development",
     company: "MUJ ACM SCHAP",
+    category: "Clubs",
     headline: "Transitioned from contributor to leading the web team.",
     body: "Maintaining and evolving the ACM portal, reviewing PRs, setting up standards, and mentoring new developers joining the tech team.",
     tags: ["Leadership", "Architecture", "Mentorship"],
@@ -29,6 +32,7 @@ const milestones = [
     period: "May 2025 – Present",
     role: "Head of Events",
     company: "Autonomoous",
+    category: "Tech",
     headline: "Expanded from building products to designing experiences.",
     body: "Contributing event ideas, planning logistics, and coordinating with teams to bring technical and cultural events to life.",
     tags: ["Event Strategy", "Coordination", "Communication"],
@@ -36,6 +40,14 @@ const milestones = [
 ];
 
 export default function ExperienceText() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const categories = ["All", ...new Set(milestones.map((m) => m.category))];
+
+  const filteredMilestones = useMemo(() => {
+    if (activeCategory === "All") return milestones;
+    return milestones.filter((m) => m.category === activeCategory);
+  }, [activeCategory]);
   return (
     <section className="relative w-full max-w-3xl mx-auto px-4 py-16 md:py-20">
       <div className="space-y-12">
@@ -66,9 +78,26 @@ export default function ExperienceText() {
           </p>
         </div>
 
+        {/* CATEGORY FILTERS */}
+        <div className="flex flex-wrap gap-3 mb-8">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 border-2 border-black font-bold text-sm transition-all motion-hover ${
+                activeCategory === category
+                  ? "bg-black text-white"
+                  : "bg-white text-black hover:bg-gray-100"
+              } hover:translate-x-[-1px] hover:translate-y-[-1px]`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         {/* TIMELINE LIST */}
         <div className="max-w-2xl mt-8 space-y-6">
-          {milestones.map((m) => (
+          {filteredMilestones.map((m) => (
             <div
               key={m.id}
               className="border-3 border-black bg-white neo-shadow p-5"
