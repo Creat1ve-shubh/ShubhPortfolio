@@ -8,7 +8,6 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
-import ScrollLinked from "./components/scroll";
 import Timeline from "./components/Experience";
 import { InfiniteMovingCardsDemo } from "./components/More";
 import Achievements from "./components/Achievements";
@@ -65,7 +64,6 @@ export default function Home() {
       { id: "projects", comp: <Projects /> },
       { id: "achievements", comp: <Achievements /> },
       { id: "cards", comp: <InfiniteMovingCardsDemo /> },
-      { id: "scroll", comp: <ScrollLinked /> },
       { id: "footer", comp: <Footer /> },
     ],
     []
@@ -172,7 +170,7 @@ const go = useCallback(
       return;
 
     const distance = touchStart.current - touchEnd.current;
-    const minSwipe = 150;
+    const minSwipe = 130;
 
     const now = Date.now();
     if (now - lastScroll.current < 1200) return;
