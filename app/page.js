@@ -142,12 +142,12 @@ const go = useCallback(
       }
 
       const now = Date.now();
-      if (now - lastScroll.current < 800) return;
+      if (now - lastScroll.current < 1000) return;
       lastScroll.current = now;
 
       // Require stronger scroll to trigger transition
-      if (e.deltaY > 40) go(1);
-      if (e.deltaY < -40) go(-1);
+      if (e.deltaY > 60) go(1);
+      if (e.deltaY < -60) go(-1);
     },
     [go, isTransitioning]
   );
@@ -172,10 +172,10 @@ const go = useCallback(
       return;
 
     const distance = touchStart.current - touchEnd.current;
-    const minSwipe = 70;
+    const minSwipe = 120;
 
     const now = Date.now();
-    if (now - lastScroll.current < 800) return;
+    if (now - lastScroll.current < 1200) return;
     lastScroll.current = now;
 
     if (distance > minSwipe) go(1);
