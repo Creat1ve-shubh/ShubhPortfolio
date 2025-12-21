@@ -139,13 +139,26 @@ const go = useCallback(
         return;
       }
 
+      const main = document.querySelector(".carousel-slide");
+      if (!main) return;
+
+      const scrollTop = main.scrollTop;
+      const scrollHeight = main.scrollHeight - main.clientHeight;
+      const atBottom = scrollTop >= scrollHeight - 5; // 5px threshold
+      const atTop = scrollTop <= 5; // 5px threshold
+
       const now = Date.now();
       if (now - lastScroll.current < 1000) return;
-      lastScroll.current = now;
 
-      // Require stronger scroll to trigger transition
-      if (e.deltaY > 60) go(1);
-      if (e.deltaY < -60) go(-1);
+      // Only trigger page transition when at bottom/top
+      if (e.deltaY > 60 && atBottom) {
+        lastScroll.current = now;
+        go(1);
+      }
+      if (e.deltaY < -60 && atTop) {
+        lastScroll.current = now;
+        go(-1);
+      }
     },
     [go, isTransitioning]
   );
@@ -169,15 +182,29 @@ const go = useCallback(
     )
       return;
 
+    const main = document.querySelector(".carousel-slide");
+    if (!main) return;
+
+    const scrollTop = main.scrollTop;
+    const scrollHeight = main.scrollHeight - main.clientHeight;
+    const atBottom = scrollTop >= scrollHeight - 5; // 5px threshold
+    const atTop = scrollTop <= 5; // 5px threshold
+
     const distance = touchStart.current - touchEnd.current;
     const minSwipe = 130;
 
     const now = Date.now();
     if (now - lastScroll.current < 1200) return;
-    lastScroll.current = now;
 
-    if (distance > minSwipe) go(1);
-    if (distance < -minSwipe) go(-1);
+    // Only trigger page transition when at bottom/top
+    if (distance > minSwipe && atBottom) {
+      lastScroll.current = now;
+      go(1);
+    }
+    if (distance < -minSwipe && atTop) {
+      lastScroll.current = now;
+      go(-1);
+    }
   }, [go, isTransitioning]);
 
   /* -------------------- RENDER -------------------- */

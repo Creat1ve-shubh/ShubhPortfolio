@@ -110,7 +110,7 @@ export default function Projects() {
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-black mt-2">
           Proof of Work
         </h2>
-        <div className="mt-3 h-1 w-32 bg-black"></div>
+        <div className="mt-3 h-1 w-32 bg-black mx-auto md:mx-0"></div>
         <p className="mt-3 text-sm md:text-base text-black font-medium">
           Projects across personal work, club contributions, hackathons, and freelance gigs.
         </p>

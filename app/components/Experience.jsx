@@ -59,7 +59,7 @@ export default function ExperienceText() {
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-black mt-2">
             My Journey
           </h2>
-          <div className="mt-3 h-1 w-32 bg-black"></div>
+          <div className="mt-3 h-1 w-32 bg-black mx-auto md:mx-0"></div>
         </div>
 
         {/* INTRO PARAGRAPHS */}

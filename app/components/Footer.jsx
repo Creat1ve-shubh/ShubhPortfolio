@@ -3,10 +3,13 @@ import { Mail, ArrowRight, Heart, Sparkles } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className='bg-white border-t-4 border-black py-16 mt-16 md:py-20 w-full'>
+    <footer className='bg-white py-16 mt-16 md:py-20 w-full'>
       <div className='max-w-4xl mx-auto px-4'>
+          {/* Decorative Line */}
+          <div className='w-full mx-auto md:mx-0 h-0.5 bg-black mb-12'></div>
+        
         {/* Main Message */}
-        <div className='mb-4'>
+        <div className='mb-4 text-center md:text-left'>
           <div className='inline-block bg-yellow-300 border-2 border-black px-3 py-1 text-xs font-bold mb-6'>
             <span className='flex items-center gap-2'>
               <Sparkles className='w-4 h-4' />
@@ -18,7 +21,7 @@ const Footer = () => {
             Good ideas deserve good execution.
           </h2>
           
-          <div className='space-y-4 text-base md:text-lg text-black font-medium leading-relaxed max-w-3xl'>
+          <div className='space-y-4 text-base md:text-lg text-black font-medium leading-relaxed max-w-3xl mx-auto md:mx-0'>
             <p>
               If you're building something that matters — a product people will actually use, 
               a system that needs to scale, or an experience that should feel effortless — 
@@ -45,8 +48,8 @@ const Footer = () => {
 
         {/* CTA Section */}
         <div className='border-4 border-black bg-white neo-shadow-lg p-8 mb-10'>
-          <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-6'>
-            <div>
+          <div className='flex flex-col md:flex-row justify-between items-center md:items-center gap-6 w-full'>
+            <div className='text-center md:text-left max-w-xl'>
               <h3 className='text-2xl font-black text-black mb-2'>
                 Ready to build something great?
               </h3>
@@ -57,7 +60,7 @@ const Footer = () => {
             
             <a
               href='mailto:shubhshrivastavawork@gmail.com'
-              className='flex items-center gap-3 px-8 py-4 border-3 border-black bg-blue-500 text-white font-black text-lg neo-shadow hover:translate-x-[-3px] hover:translate-y-[-3px] motion-hover group'
+              className='w-full md:w-auto flex justify-center items-center gap-3 px-8 py-4 border-3 border-black bg-blue-500 text-white font-black text-lg neo-shadow hover:translate-x-[-3px] hover:translate-y-[-3px] motion-hover group text-center'
             >
               Let's Talk
               <ArrowRight className='w-6 h-6 group-hover:translate-x-1 motion-hover' />
@@ -67,10 +70,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className='border-t-3 border-black pt-6'>
-          <div className='flex flex-col md:flex-row justify-between items-center gap-4 text-sm'>
-            <div className='flex items-center gap-2 font-bold text-black'>
+          <div className='flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-center md:text-left'>
+            <div className='flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 font-bold text-black'>
               <span>Built with</span>
-              <Heart className='w-4 h-4 fill-red-500 text-red-500' />
+              <Heart className='w-4 h-4 fill-red-500 text-red-500 flex-shrink-0' />
               <span>and late nights by</span>
               <a
                 href='https://github.com/Creat1ve-shubh'
