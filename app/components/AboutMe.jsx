@@ -46,65 +46,66 @@ const StatCounter = ({ end, label }) => {
 
 const primaryStack = [
   "Next.js",
-  "Node.js",
-  "Express.js",
   "React.js",
-  "MongoDB",
-  "TailwindCSS",
-  "GitHub",
+  "TypeScript",
+  "Node.js",
+  "PostgreSQL",
+  "Go (Golang)",
+  "Docker",
 ];
 
-const exploring = ["Python", "MySQL", "PostgreSQL", "Figma", "Java", "C"];
+const exploring = ["AWS", "Microservices", "Redis", "Figma", "Python", "Prometheus"];
 
 // Comprehensive skills with categories and proficiency
 const allSkills = [
   // Languages
   { name: "JavaScript", category: "Languages", level: 5 },
-  { name: "TypeScript", category: "Languages", level: 4 },
+  { name: "TypeScript", category: "Languages", level: 5 },
+  { name: "Go (Golang)", category: "Languages", level: 4 },
   { name: "Python", category: "Languages", level: 3 },
-  { name: "Java", category: "Languages", level: 3 },
-  { name: "C", category: "Languages", level: 2 },
   { name: "SQL", category: "Languages", level: 4 },
+  { name: "HTML/CSS", category: "Languages", level: 5 },
   
   // Frontend
   { name: "React", category: "Frontend", level: 5 },
   { name: "Next.js", category: "Frontend", level: 5 },
-  { name: "TailwindCSS", category: "Frontend", level: 5 },
+  { name: "Tailwind CSS", category: "Frontend", level: 5 },
   { name: "Framer Motion", category: "Frontend", level: 4 },
-  { name: "Figma", category: "Frontend", level: 3 },
+  { name: "React Native", category: "Frontend", level: 4 },
   
   // Backend
   { name: "Node.js", category: "Backend", level: 5 },
   { name: "Express.js", category: "Backend", level: 5 },
-  { name: "MongoDB", category: "Backend", level: 4 },
+  { name: "Go/Gin", category: "Backend", level: 4 },
   { name: "REST APIs", category: "Backend", level: 5 },
-  { name: "Authentication", category: "Backend", level: 4 },
+  { name: "PostgreSQL", category: "Backend", level: 5 },
+  { name: "MongoDB", category: "Backend", level: 4 },
   
   // Tools
   { name: "Git", category: "Tools", level: 5 },
-  { name: "GitHub", category: "Tools", level: 5 },
-  { name: "Docker", category: "Tools", level: 3 },
-  { name: "Vercel", category: "Tools", level: 5 },
-  { name: "Firebase", category: "Tools", level: 4 },
-  { name: "VS Code", category: "Tools", level: 5 },
+  { name: "Docker", category: "Tools", level: 4 },
+  { name: "AWS (EC2/S3)", category: "Tools", level: 3 },
+  { name: "CI/CD", category: "Tools", level: 4 },
+  { name: "Redis", category: "Tools", level: 4 },
+  { name: "Supabase", category: "Tools", level: 4 },
 ];
 
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Java", "C", "SQL"]
+    skills: ["JavaScript", "TypeScript", "Go (Golang)", "Python", "SQL", "HTML/CSS"]
   },
   {
     title: "Frontend",
-    skills: ["React", "Next.js", "TailwindCSS", "Framer Motion", "Figma"]
+    skills: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "React Native", "shadcn/ui"]
   },
   {
-    title: "Backend",
-    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Authentication"]
+    title: "Backend & DBs",
+    skills: ["Node.js", "Go/Gin", "Express", "PostgreSQL", "MongoDB", "Redis"]
   },
   {
-    title: "Tools & Platforms",
-    skills: ["Git", "GitHub", "Docker", "Vercel", "Firebase", "VS Code"]
+    title: "DevOps & Cloud",
+    skills: ["Docker", "AWS", "CI/CD", "Vercel", "Git", "Prometheus"]
   }
 ];
 
@@ -135,26 +136,31 @@ const AboutMe = () => {
           {/* Bio */}
           <div className="space-y-5 text-base md:text-lg leading-relaxed text-black">
             <p>
-              I&apos;m Shubh, a <span className="bg-purple-500 text-white px-2 py-0.5 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">full stack developer</span> who gets obsessed with turning messy, complex problems into products that people genuinely love to use. I don&apos;t just build features—I build things that matter.
+              I&apos;m Shubh, an <span className="bg-purple-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">AI engineer</span> and <span className="bg-purple-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">systems-focused product builder</span> obsessed with turning messy, complex problems into products people genuinely love to use. I don&apos;t just build features—I design intelligent systems that solve real problems at scale.
             </p>
 
             <p>
-              Here&apos;s what drives me: <span className="bg-blue-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">writing clean code</span> that other developers thank me for, <span className="bg-orange-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">shipping fast</span> because ideas mean nothing without execution, and <span className="bg-pink-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">iterating relentlessly</span> based on real user feedback. The sweet spot is always between elegant code and working software, and I refuse to compromise on either.
+              What drives me is the intersection of <span className="bg-blue-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">first-principles thinking</span>, <span className="bg-blue-600 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">architectural decision making</span>, and relentless execution. I care deeply about <span className="bg-orange-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">shipping fast</span>, but never at the cost of maintainability, scalability, or user experience. Elegant systems and working software are not tradeoffs—they&apos;re the baseline.
             </p>
 
             <p>
-              I&apos;ve built <span className="bg-green-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">impact-driven web products</span> from scratch, designed <span className="bg-cyan-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">intuitive user interfaces</span> where the right choice feels obvious, and architected <span className="bg-yellow-400 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">scalable backend systems</span> that can handle real growth without falling apart. I specialize in <span className="bg-indigo-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">cross-platform systems</span> built for scalability and robustness—whether it&apos;s web, mobile, or desktop, the architecture stays solid. Each project gets the same treatment—I care about the details.
+              My foundation spans <span className="bg-pink-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">AI engineering</span>, <span className="bg-green-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">full stack development</span>, <span className="bg-cyan-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">frontend engineering</span>, <span className="bg-yellow-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">backend systems</span>, <span className="bg-indigo-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">databases</span>, <span className="bg-sky-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">cloud infrastructure</span>, and <span className="bg-rose-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">DevOps</span>. I build products end-to-end—from intelligent user experiences and scalable APIs to deployment pipelines and production infrastructure.
             </p>
 
             <p>
-              What sets me apart? I thrive in the messy middle ground between engineering and product thinking. I&apos;ll push back on bad ideas, propose better solutions, and ship something we&apos;re all proud of. I learn in public, pair program with anyone willing, and believe the best work happens when designers, engineers, and product people actually talk to each other.
+              I&apos;ve architected <span className="bg-green-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">impact-driven systems</span> from scratch, designed <span className="bg-cyan-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">intuitive interfaces</span> where complexity disappears behind clarity, and engineered <span className="bg-yellow-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">robust distributed backends</span> that scale without collapsing under growth. Whether it&apos;s AI-powered applications, web platforms, automation systems, or cross-platform products, I think deeply about how every layer connects.
             </p>
 
             <p>
-              If you&apos;re building something ambitious and need someone who can bridge{" "}
-              <span className="bg-red-500 text-white px-2 py-0.5 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">design thinking with technical execution</span>
-              —someone who writes clean code and understands why the user experience matters—
-              <span className="bg-red-500 text-white px-2 py-0.5 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">let&apos;s talk</span>.
+              What sets me apart is <span className="bg-purple-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">systems thinking</span>—the ability to zoom out, identify bottlenecks, question assumptions, and engineer solutions from the ground up. I don&apos;t blindly follow trends or frameworks. I think from fundamentals, optimize for leverage, and focus on building products that create disproportionate impact.
+            </p>
+
+            <p>
+              I thrive in the space between <span className="bg-red-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">engineering</span>, <span className="bg-orange-500 text-black px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">product thinking</span>, and <span className="bg-pink-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">user psychology</span>. I&apos;ll challenge weak ideas, propose stronger architectures, and obsess over the details until the product feels right. I learn in public, collaborate openly, and believe the best products emerge when designers, engineers, and builders communicate honestly.
+            </p>
+
+            <p>
+              If you&apos;re building something ambitious and need someone who can bridge <span className="bg-red-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">design thinking</span> with <span className="bg-blue-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">technical execution</span>, architect scalable systems, and move quickly without sacrificing quality—<span className="bg-red-500 text-white px-2 py-0.5 mx-1 border-2 border-black font-bold hover:translate-x-[-1px] hover:translate-y-[-1px] motion-hover inline-block">let&apos;s talk</span>.
             </p>
           </div>
 
@@ -207,8 +213,8 @@ const AboutMe = () => {
               const categoryColors = {
                 "Languages": { bg: "bg-purple-50", border: "border-purple-400", header: "bg-purple-200" },
                 "Frontend": { bg: "bg-pink-50", border: "border-pink-400", header: "bg-pink-200" },
-                "Backend": { bg: "bg-blue-50", border: "border-blue-400", header: "bg-blue-200" },
-                "Tools & Platforms": { bg: "bg-yellow-50", border: "border-yellow-400", header: "bg-yellow-200" }
+                "Backend & DBs": { bg: "bg-blue-50", border: "border-blue-400", header: "bg-blue-200" },
+                "DevOps & Cloud": { bg: "bg-yellow-50", border: "border-yellow-400", header: "bg-yellow-200" }
               }[category.title] || { bg: "bg-gray-50", border: "border-gray-400", header: "bg-gray-200" };
 
               return (

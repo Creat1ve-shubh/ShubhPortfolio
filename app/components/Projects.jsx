@@ -8,97 +8,46 @@ import { Code2, Users, Trophy, Lightbulb } from "lucide-react";
 import shubh from "../assets/shubh.jpg";
 
 const projectsData = {
-  personal: [
+  fullstack: [
     {
-      id: "carbon",
-      title: "Carbon Footprint Exchange",
-      description: "Carbon credit trading platform with auth, database, and simple analytics dashboards.",
-      href: "https://carbon-footprint-exchange.vercel.app/",
+      id: "placement-portal",
+      title: "Graduate Outcome Record Portal",
+      description: "Developed a full-stack university placement data management portal with automated bulk CSV ingestion and role-segregated dashboards.",
+      href: "/",
       imageSrc: shubh,
-      tech: ["Next.js", "MongoDB", "TailwindCSS"],
+      tech: ["React", "Express.js", "PostgreSQL", "Tailwind CSS"],
       year: "2024",
     },
     {
-      id: "portfolio",
-      title: "Personal Portfolio",
-      description: "Neo-brutalist design portfolio with smooth animations and interactive components.",
+      id: "pantrypal",
+      title: "PantryPal",
+      description: "Built AI-assisted pantry management system with ingredient-based recipe recommendation engine and real-time inventory tracking.",
       href: "/",
       imageSrc: shubh,
-      tech: ["Next.js", "Framer Motion", "TailwindCSS"],
-      year: "2024",
-    },
-  ],
-  club: [
-    {
-      id: "oneiros",
-      title: "MUJ Oneiros Fest Website",
-      description: "Official fest website with responsive layouts for events, schedules, and sponsors.",
-      href: "/",
-      imageSrc: "/projects/oneiros.png",
-      tech: ["Next.js", "TailwindCSS"],
-      year: "2025",
-    },
-    {
-      id: "acm",
-      title: "MUJ ACM SCHAP Portal",
-      description: "Public site and internal tools powering the ACM student chapter at MUJ.",
-      href: "/",
-      imageSrc: "/projects/acm.png",
-      tech: ["React", "Node.js", "Express"],
+      tech: ["React", "Neon DB", "TypeScript", "Tailwind CSS"],
       year: "2024",
     },
   ],
-  hackathon: [
+  ai: [
     {
-      id: "hack1",
-      title: "Smart Parking System",
-      description: "IoT-based parking solution with real-time availability tracking and mobile app.",
+      id: "feedbot",
+      title: "Feedbot – AI Analysis",
+      description: "Engineered AI-powered sentiment analysis pipeline using LSTM+Transformer hybrid architecture achieving 0.83 F1 score on a 1.6M-tweet dataset.",
       href: "/",
       imageSrc: shubh,
-      tech: ["React Native", "Firebase", "Arduino"],
+      tech: ["FastAPI", "Docker", "Redis", "AWS"],
       year: "2024",
-    },
-    {
-      id: "hack2",
-      title: "EduConnect Platform",
-      description: "Connecting students with mentors for peer-to-peer learning and guidance.",
-      href: "/",
-      imageSrc: shubh,
-      tech: ["Next.js", "Socket.io", "PostgreSQL"],
-      year: "2024",
-    },
-  ],
-  freelance: [
-    {
-      id: "free1",
-      title: "E-commerce Dashboard",
-      description: "Admin dashboard for managing products, orders, and analytics for local business.",
-      href: "/",
-      imageSrc: shubh,
-      tech: ["React", "Node.js", "MongoDB"],
-      year: "2024",
-    },
-    {
-      id: "free2",
-      title: "Restaurant Booking App",
-      description: "Table reservation system with real-time availability and SMS notifications.",
-      href: "/",
-      imageSrc: shubh,
-      tech: ["Next.js", "Prisma", "Twilio"],
-      year: "2023",
     },
   ],
 };
 
 const categories = [
-  { id: "personal", label: "Personal", icon: Code2, color: "bg-blue-500" },
-  { id: "club", label: "Club Projects", icon: Users, color: "bg-green-500" },
-  { id: "hackathon", label: "Hackathons", icon: Trophy, color: "bg-yellow-500" },
-  { id: "freelance", label: "Freelance", icon: Lightbulb, color: "bg-pink-500" },
+  { id: "fullstack", label: "Full Stack", icon: Code2, color: "bg-blue-500" },
+  { id: "ai", label: "AI & ML", icon: Lightbulb, color: "bg-green-500" },
 ];
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState("personal");
+  const [activeCategory, setActiveCategory] = useState("fullstack");
   const currentProjects = projectsData[activeCategory];
 
   return (

@@ -82,14 +82,7 @@ export default function Home() {
   const touchStart = useRef(null);
   const touchEnd = useRef(null);
 
-  /* -------------------- SCROLL RESET (SAFE) -------------------- */
-
-useEffect(() => {
-  if (!isTransitioning) {
-    window.scrollTo(0, 0);
-    setScrollProgress(0);
-  }
-}, [index, isTransitioning]);
+  /* -------------------- SCROLL RESET (MOVED TO ANIMATION) -------------------- */
 
   /* -------------------- SCROLL PROGRESS HANDLER -------------------- */
 
@@ -243,6 +236,14 @@ const go = useCallback(
         if (phase === "enter") {
           setIndex(pendingIndex);
           setPendingIndex(null);
+          
+          // Reset scroll seamlessly while covered
+          const main = document.querySelector(".carousel-slide");
+          if (main) {
+            main.scrollTo({ top: 0, behavior: "instant" });
+          }
+          setScrollProgress(0);
+          
           setPhase("exit"); // reveal new content
           return;
         }
