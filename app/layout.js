@@ -1,40 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Head from "next/head";
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export const metadata = {
-  title: "Shubh's Portfolio",
-  description: "Collection of my projects and experiences.",
-
-
-
-};
-
+const geistSans = localFont({ src: "./fonts/GeistVF.woff", variable: "--font-geist-sans", weight: "100 900" });
+const geistMono = localFont({ src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono", weight: "100 900" });
+export const metadata = { title: "Shubh Shrivastava — Engineer & Product Builder", description: "Selected work in AI engineering, full-stack development, and reliable systems by Shubh Shrivastava." };
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en" style={{ overflow: 'hidden', height: '100vh' }}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ 
-          overflow: 'hidden', 
-          height: '100vh',
-          width: '100vw',
-          margin: 0,
-          padding: 0,
-        }}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return <html lang="en"><body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body></html>;
 }
