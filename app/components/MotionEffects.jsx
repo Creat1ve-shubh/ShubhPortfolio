@@ -7,7 +7,7 @@ export default function MotionEffects() {
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const animations = new Set();
-    const targets = document.querySelectorAll(".hero-copy > *, .portrait, .section-heading, .project-card, .experience-row, .about-content, .contact > *");
+    const targets = document.querySelectorAll(".hero-copy > *, .portrait, .section-heading, .project-card, .experience-row, .about-content, .contact > *, .writing-heading, .writing-portal, .essay-feature, .essay-row, .trust-section > *");
     const reveal = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => {
         if (!isIntersecting) return;

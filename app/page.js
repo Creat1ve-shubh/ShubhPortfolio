@@ -1,3 +1,5 @@
+import Link from "next/link";
+import WritingSection from "./components/WritingSection";
 import Image from "next/image";
 import MotionEffects from "./components/MotionEffects";
 import SmoothScroll from "./components/SmoothScroll";
@@ -33,14 +35,14 @@ export default function Home() {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header"><div className="shell nav-inner">
       <a className="wordmark" href="#home" aria-label="Shubh, home">shubh<span>.</span></a>
-      <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a></nav>
+      <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#writing">Notes</a><a href="#about">About</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a></nav>
     </div></header>
     <main id="main" className="shell">
       <section id="home" className="hero" aria-labelledby="hero-title">
         <div className="hero-copy"><p className="eyebrow"><span className="accent-square" /> Let's get this rolling</p>
           <h1 id="hero-title">Shubh<br />Shrivastava<span className="accent">.</span></h1>
-          <p className="hero-role">Software engineer &amp; product builder</p>
-          <p className="hero-description">I build full-stack platforms and AI-powered tools, from university-wide systems to products that turn data into insight.</p>
+          <p className="hero-role">Full-stack engineer &amp; product builder</p>
+          <p className="hero-description">I build real-world platforms with Next.js, Go, and PostgreSQL—from role-based dashboards to production infrastructure. I also explore AI through projects like Feedbot.</p>
           <div className="hero-actions"><a className="button primary" href="#work">Selected work <span aria-hidden="true">↘</span></a><a className="text-link" href={resume} target="_blank" rel="noreferrer">View resume <span aria-hidden="true">↗</span></a></div>
           <div className="social-block"><p className="social-label">Find me online</p><nav className="hero-socials" aria-label="Social links"><a href="https://github.com/Creat1ve-shubh" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/shubh-shrivastava/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://leetcode.com/u/Creat1ve-shubh/" target="_blank" rel="noreferrer">LeetCode ↗</a></nav></div>
         </div>
@@ -57,7 +59,8 @@ export default function Home() {
           </div>
           <h3>{project.name}</h3><p>{project.description}</p><div className="project-tech">{project.stack.split(" / ").map(tech => <span key={tech}>{tech}</span>)}</div>
           <a className="text-link project-link" href={project.href} target="_blank" rel="noreferrer">{project.link} <span aria-hidden="true">↗</span></a>
-          <details><summary>Project notes <span aria-hidden="true">+</span></summary><p>{project.detail}</p></details>
+          {index === 0 && <Link className="case-study-link" href="/work/graduate-outcome-portal">Read case study <span className="draft-label">Draft ↗</span></Link>}
+          <details><summary>Project notes <span aria-hidden="true">+</span></summary><p>{project.detail}</p><div className="project-pending"><span className="draft-label">Evidence to add</span><p>{["Add ownership breakdown, screenshots, and adoption context.", "Add dataset split, F1 averaging method, baseline, and failure cases.", "Add frontend ownership details, beta screenshots, and a walkthrough."][index]}</p></div></details>
         </article>)}</div>
         <a className="text-link work-link" href="https://github.com/Creat1ve-shubh" target="_blank" rel="noreferrer">More on GitHub ↗</a>
       </section>
@@ -67,14 +70,16 @@ export default function Home() {
           <p className="period">{period}</p><div><h3>{role}</h3><p className="company">{company}</p><p className="experience-description">{description}</p><p className="stack">{stack}</p><a className="text-link experience-link" href={href} target="_blank" rel="noreferrer">{link} ↗</a></div>
         </article>)}</div>
       </section>
+      <WritingSection />
       <section id="about" className="section about" aria-labelledby="about-title">
-        <SectionHeading number="03" label="About"><span id="about-title">Curious by default.<br />Builder by choice.</span></SectionHeading>
+        <SectionHeading number="04" label="About"><span id="about-title">Curious by default.<br />Builder by choice.</span></SectionHeading>
         <div className="about-content"><p className="about-lead">I like making complex things feel simple.</p><p>I build across the stack: interfaces in React and Next.js, APIs in Go and Node.js, and the databases and infrastructure behind them. My work includes university placement platforms, recruitment workflows, and machine-learning systems.</p><p>I care about system design, reliable delivery, and clear development workflows. Alongside my degree, I practice data structures and algorithms with 140+ LeetCode problems solved.</p>
           <div className="education"><p className="eyebrow">Education / 2023 — 2027</p><h3>Manipal University Jaipur</h3><p>B.Tech in Computer Science Engineering<br />IoT &amp; Intelligent Systems</p><p className="stack">Aug 2023 — Aug 2027 · Jaipur, Rajasthan</p></div>
           <div className="skills">{skills.map(([label, items]) => <div key={label}><h3>{label}</h3><p>{items}</p></div>)}</div>
         </div>
       </section>
-      <section id="contact" className="section contact" aria-labelledby="contact-title"><p className="eyebrow">04 / Say hello</p><h2 id="contact-title">Good ideas deserve<br />good execution<span className="accent">.</span></h2><div className="contact-bottom"><p>Open to full-time roles, contracts,<br />and thoughtful collaborations.</p><a className="button primary" href="mailto:shubhshrivastavawork@gmail.com">Let's talk <span aria-hidden="true">↗</span></a></div><a className="email-link" href="mailto:shubhshrivastavawork@gmail.com">shubhshrivastavawork@gmail.com</a></section>
+      <section className="section trust-section" aria-labelledby="trust-title"><div><p className="eyebrow">05 / Working together</p><h2 id="trust-title">The work.<br />In someone else’s words.</h2></div><div className="recommendation-slot"><span className="draft-label">Recommendation pending</span><p>No quote yet. This space is reserved for a specific, permission-approved recommendation from a manager or collaborator.</p><span className="stack">Name · Role · Organization — to be supplied</span></div></section>
+      <section id="contact" className="section contact" aria-labelledby="contact-title"><p className="eyebrow">06 / Say hello</p><h2 id="contact-title">Good ideas deserve<br />good execution<span className="accent">.</span></h2><div className="hiring-details"><div><span>Target role</span><strong>To be confirmed</strong></div><div><span>Availability</span><strong>To be confirmed</strong></div><div><span>Work arrangement</span><strong>To be confirmed</strong></div></div><p className="hiring-note">Hiring details are placeholders until confirmed. Expected graduation: August 2027.</p><div className="contact-bottom"><p>Hiring a full-stack engineer?<br />Let’s talk about what you’re building.</p><a className="button primary" href="mailto:shubhshrivastavawork@gmail.com">Let's talk <span aria-hidden="true">↗</span></a></div><a className="email-link" href="mailto:shubhshrivastavawork@gmail.com">shubhshrivastavawork@gmail.com</a></section>
     </main>
     <footer className="shell footer"><p>© {new Date().getFullYear()} Shubh Shrivastava</p><a href="#home">Back to top ↑</a></footer>
   </>;
