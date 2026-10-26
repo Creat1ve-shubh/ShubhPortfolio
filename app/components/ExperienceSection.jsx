@@ -1,11 +1,9 @@
-import Curtain from "./Curtain";
 import SectionHeading from "./SectionHeading";
 import { experience } from "../../content/portfolio";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="section experience" aria-labelledby="experience-title">
-      <Curtain number="02" label="Experience" />
+    <section id="experience" data-title="Experience" className="section experience" aria-labelledby="experience-title">
       <SectionHeading number="02" label="Experience" id="experience-title">Built along the way.</SectionHeading>
       <div>
         {experience.map((job) => (

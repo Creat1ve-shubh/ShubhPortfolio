@@ -1,11 +1,10 @@
 import CopyEmail from "./CopyEmail";
-import Curtain from "./Curtain";
+import SiteFooter from "./SiteFooter";
 import { person } from "../../content/site";
 
 export default function Contact() {
   return (
-    <section id="contact" className="section contact" aria-labelledby="contact-title">
-      <Curtain number="05" label="Say hello" />
+    <section id="contact" data-title="Say hello" className="section contact" aria-labelledby="contact-title">
       <p className="eyebrow">05 / Say hello</p>
       <h2 id="contact-title">Good ideas deserve<br />good execution<span className="accent">.</span></h2>
       <div className="contact-bottom">
@@ -19,6 +18,7 @@ export default function Contact() {
         </div>
         <p className="contact-meta">{person.location} · {person.timezone} · Graduating {person.graduation}</p>
       </div>
+      <SiteFooter home />
     </section>
   );
 }

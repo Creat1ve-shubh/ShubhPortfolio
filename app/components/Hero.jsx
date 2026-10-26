@@ -4,7 +4,7 @@ import { person } from "../../content/site";
 
 export default function Hero() {
   return (
-    <section id="home" className="hero" aria-labelledby="hero-title">
+    <section id="home" data-title="Home" className="hero" aria-labelledby="hero-title">
       <div className="hero-copy">
         <p className="eyebrow"><span className="accent-square" /> Full-stack engineer · Graduating {person.graduation}</p>
         <h1 id="hero-title">Shubh<br />Shrivastava<span className="accent">.</span></h1>

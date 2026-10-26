@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Curtain from "./Curtain";
 import SectionHeading from "./SectionHeading";
 import { projects } from "../../content/portfolio";
 import { showDrafts } from "../../content/site";
@@ -35,8 +34,7 @@ function ProjectArt({ index }) {
 
 export default function Work() {
   return (
-    <section id="work" className="section" aria-labelledby="work-title">
-      <Curtain number="01" label="Selected work" />
+    <section id="work" data-title="Selected work" className="section" aria-labelledby="work-title">
       <SectionHeading number="01" label="Selected work" id="work-title">Ideas, made real.</SectionHeading>
       <div className="project-grid">
         {projects.map((project, index) => (

@@ -53,7 +53,7 @@ export default function NotebookGrid({ home = false }) {
       {home ? (
         <Link className="bento-tile tile-cta" href="/notes">
           <p className="eyebrow">The notebook</p>
-          <h3>A little thought.<br />A longer story.</h3>
+          <h3>Every thought and blog,<br />in one place.</h3>
           <span className="essay-cta">Open the notebook <span aria-hidden="true">↗</span></span>
         </Link>
       ) : (

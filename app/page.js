@@ -1,10 +1,9 @@
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ExperienceSection from "./components/ExperienceSection";
+import FullPage from "./components/FullPage";
 import Hero from "./components/Hero";
-import MotionEffects from "./components/MotionEffects";
 import NotebookSection from "./components/NotebookSection";
-import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 import Work from "./components/Work";
 import { person, siteUrl } from "../content/site";
@@ -21,11 +20,20 @@ const personJsonLd = {
   knowsAbout: ["Next.js", "React", "Go", "PostgreSQL", "Node.js", "System design"],
 };
 
+// Order matches the sections in <main>; FullPage uses it for the side dots.
+const sections = [
+  { id: "home", title: "Home" },
+  { id: "work", title: "Selected work" },
+  { id: "experience", title: "Experience" },
+  { id: "notebook", title: "Notebook" },
+  { id: "about", title: "About" },
+  { id: "contact", title: "Say hello" },
+];
+
 export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
-      <MotionEffects />
       <SiteHeader home />
       <main id="main" className="shell">
         <Hero />
@@ -35,7 +43,7 @@ export default function Home() {
         <About />
         <Contact />
       </main>
-      <SiteFooter home />
+      <FullPage sections={sections} />
     </>
   );
 }

@@ -1,11 +1,9 @@
-import Curtain from "./Curtain";
 import SectionHeading from "./SectionHeading";
 import { education, skills } from "../../content/portfolio";
 
 export default function About() {
   return (
-    <section id="about" className="section about" aria-labelledby="about-title">
-      <Curtain number="04" label="About" />
+    <section id="about" data-title="About" className="section about" aria-labelledby="about-title">
       <SectionHeading number="04" label="About" id="about-title">Curious by default.<br />Builder by choice.</SectionHeading>
       <div className="about-content">
         <p className="about-lead">I like making complex things feel simple.</p>
