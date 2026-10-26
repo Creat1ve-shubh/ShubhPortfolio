@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# shubh. — portfolio
 
-## Getting Started
+Personal portfolio of Shubh Shrivastava, built with Next.js (App Router) and React 19. Styling is plain CSS in `app/globals.css`; Tailwind is only used for its base reset.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `content/site.js` — name, email, socials, resume path, site URL and the drafts flag
+- `content/portfolio.js` — projects, experience, skills, education
+- `content/notes.js`, `content/thoughts.js` — blogs and short thoughts for the notebook grid
+- `app/components/` — one component per homepage section
+- `app/opengraph-image.js`, `app/icon.svg`, `app/sitemap.js`, `app/robots.js` — sharing and SEO
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Environment variables
 
-## Learn More
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Production URL used for canonical links, Open Graph and the sitemap. Falls back to the Vercel production URL. |
+| `NEXT_PUBLIC_SHOW_DRAFTS` | Set to `true` to preview unpublished blog outlines and the case study draft. |
 
-To learn more about Next.js, take a look at the following resources:
+## Publishing writing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Set `published: true` on a note in `content/notes.js` and add `date`, `readingTime` and `body` (one string or an array of paragraphs per section). For a thought, set `placeholder: false` and add `text` and `date`.

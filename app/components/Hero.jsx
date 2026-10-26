@@ -1,31 +1,44 @@
-"use client"
-import React from "react";
 import Image from "next/image";
-import shubh from '../assets/shubh.jpg';
-import Keyframes from "./keyframe";
-import { motion } from "framer-motion";
+import portrait from "../assets/shubh-illustration.png";
+import { person } from "../../content/site";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <div className="flex flex-col mt-[10vh] sm:flex-row items-center justify-between px-6 py-10 max-w-screen-xl mx-auto gap-8">
-      <div className="mx-10">
-        <Keyframes />
-      </div>
-      
-      <div className="flex-col">
-        <p className="text-xs mb-3 font-bold uppercase tracking-[0.3em] text-black border-l-4 border-orange-500 pl-3">
-          Welcome
+    <section id="home" className="hero" aria-labelledby="hero-title">
+      <div className="hero-copy">
+        <p className="eyebrow"><span className="accent-square" /> Full-stack engineer · Graduating {person.graduation}</p>
+        <h1 id="hero-title">Shubh<br />Shrivastava<span className="accent">.</span></h1>
+        <p className="hero-role">{person.role}</p>
+        <p className="hero-description">
+          I build real-world platforms with Next.js, Go, and PostgreSQL—from role-based dashboards to
+          production infrastructure. I also explore AI through projects like Feedbot.
         </p>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-black text-center sm:text-left leading-tight">
-          Let's get this rolling
-        </h1>
+        <div className="hero-actions">
+          <a className="button primary" href="#work">Selected work <span aria-hidden="true">↘</span></a>
+          <a className="text-link" href={person.resume} target="_blank" rel="noreferrer">View resume <span aria-hidden="true">↗</span></a>
+        </div>
+        <div className="social-block">
+          <p className="social-label">Find me online</p>
+          <nav className="hero-socials" aria-label="Social links">
+            {person.socials.map(({ label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer">{label} ↗</a>
+            ))}
+          </nav>
+        </div>
       </div>
-
-      <div className="relative w-full sm:w-[60%] max-w-screen-md border-4 border-black neo-shadow-lg">
-        <Image src={shubh} alt="banner" width={3000} height={1100} className="w-full h-auto" />
-      </div>
-    </div>
+      <figure className="portrait hero-art">
+        <div className="portrait-frame">
+          <Image
+            src={portrait}
+            alt="Pixel-art illustration of a developer coding at night beneath a glowing @Shubh sign"
+            priority
+            placeholder="blur"
+            sizes="(max-width: 700px) 85vw, (max-width: 950px) 300px, 400px"
+          />
+        </div>
+        <figcaption><span>Somewhere between an idea and a commit.</span><span aria-hidden="true">[ S / S ]</span></figcaption>
+      </figure>
+      <div className="hero-bottom"><span>Engineering with intent.</span><a href="#work">Explore the work ↓</a></div>
+    </section>
   );
-};
-
-export default Hero;
+}
