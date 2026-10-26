@@ -318,3 +318,6 @@ html.lenis, html.lenis body { scroll-behavior: auto !important; }
 @media (hover:hover) { .blog-card:hover, .writing-portal:hover { box-shadow: 7px 7px 0 var(--ink); } .blog-card:hover .blog-cover strong { transform: translateY(-4px); } }
 @media (max-width:700px) { .view-intro, .thought-feed, .blog-grid, .writing-portals { grid-template-columns: 1fr; gap: 25px; } .thought-margin { display: none; } .notebook-tabs button { flex: 1; justify-content: center; padding: 14px 12px; } .notebook-tabs button small { display: none; } .blog-cover { min-height: 180px; } .notebook-header { padding-bottom: 30px; } }
 @media (prefers-reduced-motion:reduce) { .notebook-panel { animation: none; } .blog-card:hover .blog-cover strong { transform: none; } }
+
+.thought-icon { display: inline-block; width: 1em; height: 1em; vertical-align: middle; }
+.notebook-tabs .thought-icon { width: 24px; height: 24px; }
